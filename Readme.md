@@ -75,7 +75,3 @@ Install PyTorch with the same version of CUDA.
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
-
-
-
-

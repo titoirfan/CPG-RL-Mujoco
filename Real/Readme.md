@@ -129,11 +129,3 @@ Right Stick : Turn left and right
 
 Left Pad up & down : Change the height of the body
 Left Pad left & right : Change the gc
-
-## Memo
-
-``` cmd
-git add .
-git commit -m "update"
-git push
-```

@@ -198,8 +198,8 @@ def main(args):
         while not done:
             
             # print(f"gain_factor:{env.gain_factor}")
-            
-            action = agent.select_action(state,evaluate=True)  # Sample action from policy
+            with torch.inference_mode():
+                action = agent.select_action(state,evaluate=True)  # Sample action from policy
             
             if args.alog:
                 with open(f"{test_log_dir}/CSVs/action_{i_episode}.csv", 'a',newline='') as file:

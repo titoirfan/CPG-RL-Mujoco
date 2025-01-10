@@ -8,6 +8,7 @@ import numpy as np
 import itertools
 import torch
 import csv
+import math
 
 import random
 
@@ -107,7 +108,7 @@ def main(args):
     # Training Loop
     total_numsteps = 0
     updates = 0
-    max_episode_rewards = -10000
+    max_episode_rewards = -math.inf
     best_episode = 0
     action_scale = np.array([1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0])
     for i_episode in itertools.count(1):
@@ -165,7 +166,8 @@ def main(args):
                 action = np.tanh(action)
                 
             else:
-                action = agent.select_action(state)  # Sample action from policy
+                with torch.inference_mode():
+                    action = agent.select_action(state)  # Sample action from policy
 
                 if len(memory) > cfg.batch_size:
                     # Number of updates per step in environment

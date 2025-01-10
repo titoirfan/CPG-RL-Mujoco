@@ -117,7 +117,7 @@ void Custom::TCPClient() {
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(12345);
 
-    if (inet_pton(AF_INET, "169.254.6.104", &serv_addr.sin_addr) <= 0) {
+    if (inet_pton(AF_INET, "169.254.187.12", &serv_addr.sin_addr) <= 0) {
         std::cerr << "Invalid address/ Address not supported" << std::endl;
         return;
     }
